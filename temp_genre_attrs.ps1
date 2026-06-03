@@ -1,0 +1,63 @@
+$path = 'index.html'
+$text = Get-Content $path -Raw
+$map = @{
+    'El Club de la Pelea' = 'drama,thriller'
+    'La La Land' = 'romance,comedia'
+    'El Origen' = 'ciencia ficción,thriller'
+    'Maria Antonieta' = 'drama'
+    'Pequeñas Grandes Amigas' = 'coming of age,drama'
+    'El Grand Hotel Budapest' = 'comedia,drama'
+    'La Sociedad de los Poetas Muertos' = 'drama'
+    'Las Ventajas de Ser Invisible' = 'coming of age,drama'
+    'Yo Antes de Ti' = 'romance,drama'
+    'Eterno Resplandor de una Mente sin Recuerdos' = 'romance,drama'
+    'Pequeña Miss Sunshine' = 'comedia,drama'
+    'Vidas Pasadas' = 'drama,romance'
+    'Camino Salvaje' = 'drama'
+    'Amélie' = 'romance,comedia'
+    'Forrest Gump' = 'comedia,drama'
+    'Casi Famosos' = 'coming of age,comedia'
+    'Comer Rezar Amar' = 'romance,drama'
+    'Aftersun' = 'drama'
+    'Un Lugar Llamado Notting Hill' = 'romance,comedia'
+    'Intelestelar' = 'ciencia ficción,drama'
+    'Expación, Deseo y Pecado' = 'drama'
+    'Pearl Harbor' = 'drama,suspenso'
+    'Truman Show' = 'drama,suspenso'
+    'Antes del Amanecer' = 'romance,drama'
+    'Matrix' = 'ciencia ficción,suspenso'
+    'Mujercitas' = 'drama,romance'
+    'Bajo el Sol de la Toscana' = 'romance,drama'
+    'Mente Indomable' = 'drama'
+    'Código Da Vinci' = 'thriller,suspenso'
+    'El Gran Pez' = 'comedia,drama'
+    'La Vida es Bella' = 'drama,comedia'
+    'Diario de una Pasión' = 'romance,drama'
+    'Cinema Paradiso' = 'drama,romance'
+    'Ratatouille' = 'animación,comedia'
+    'Perfume de Mujer' = 'drama,suspenso'
+    'Medianoche en Paris' = 'romance,comedia'
+    '10 Cosas que Odio de ti' = 'comedia,romance'
+    'Orgullo y Prejuicio' = 'romance,drama'
+    'Frankestein' = 'drama,suspenso'
+    'Cuenta Conmigo' = 'drama,coming of age'
+    'Romeo + Julieta' = 'romance,drama'
+    'El Cisne Negro' = 'thriller,drama'
+    'Cuestión de Tiempo' = 'romance,drama'
+    'Desayuno en Tiffany''s' = 'romance,drama'
+    'La Vida Secreta de Walter Mitty' = 'drama,comedia'
+    'Todo, en Todas Partes, al Mismo Tiempo' = 'ciencia ficción,comedia'
+    'Sueños de Fuga' = 'drama'
+    'Hamnet' = 'drama'
+    'Siempre el Mismo Día' = 'romance,drama'
+}
+foreach ($title in $map.Keys) {
+    $genre = $map[$title]
+    $esc = [regex]::Escape($title)
+    $pattern = '(<figure class="mag-item reveal"[^>]*)(>)(\s*<figcaption>\s*<span[^>]*>\s*<h3>\s*' + $esc + '\s*<span class="year">)'
+    $text = [regex]::Replace($text, $pattern, '$1 data-genero="' + $genre + '"$2$3')
+}
+if ($text -notmatch '<!-- Géneros por tarjeta: usa data-genero="drama"') {
+    $text = $text -replace '(</select>\s*)<figure class="mag-item reveal"', '</select>\n                <!-- Géneros por tarjeta: usa data-genero="drama" -->\n                <figure class="mag-item reveal"'
+}
+Set-Content -Path $path -Value $text -Encoding utf8

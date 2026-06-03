@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Revista digital sobre cine moderno con estética editorial minimalista." />
+        <meta name="keywords" content="cine, revista, crítica, estética, narrativa, películas, análisis" />
+        <title>ARCHIVO 49 - Revista de cine</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="site-header container">
+            <div class="header-left">
+                <a class="logo" href="#">ARCHIVO 49</a>
+            </div>
+            <nav class="nav-links">
+                <a class="nav-link" href="#inicio">Inicio</a>
+                <a class="nav-link" href="#peliculas">Colección</a>
+                <a class="nav-link" href="#sobre">Editorial</a>
+                <a class="nav-link" href="#contacto">Contacto</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="inicio" class="cover">
+                <div class="cover-image" aria-hidden="true"></div>
+                <div class="cover-content container">
+                    <h1 class="mag-title">ARCHIVO 49</h1>
+                    <span class="cover-big-number">49</span>
+                    <p class="mag-lead">Una mirada al cine contemporáneo, su estética única y las narrativas que nunca se olvidan.</p>
+                    <p class="mag-lead">Hecho por Candelaria Soria.</p>
+                </div>
+            </section>
+
+            <section id="peliculas" class="magazine container">
+
+                <div class="sobre" style="padding-bottom:24px;">
+                    <h2 class="section-title">Colección</h2>
+                    <p class="editorial">Explora la colección exclusiva de las 49 películas más recomendadas por la revista.</p>
+                </div>
+
+                <div class="controls-filter" aria-label="Barra de búsqueda y ordenamiento">
+                    <div class="cf-search-wrapper">
+                        <span class="cf-search-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="10" cy="10" r="6.2"/>
+                                <path d="M15.5 15.5L20 20"/>
+                            </svg>
+                        </span>
+                        <input id="miniSearch" class="cf-mini-search" type="search" placeholder="Buscar pelÃ­culas" aria-label="Buscar pelÃ­culas" />
+                    </div>
+                    <select id="orderSelect" class="cf-select" aria-label="Ordenar pelÃ­culas">
+                        <option value="recommended">Recomendadas</option>
+                        <option value="year-desc">Año más reciente</option>
+                        <option value="year-asc">Año más antiguo</option>
+                        <option value="az">A-Z</option>
+                    </select>
+                    <select id="genreSelect" class="cf-select" aria-label="Filtrar por gÃ©nero">
+                        <option value="all">Todos los géneros</option>
+                        <option value="drama">Drama</option>
+                        <option value="romance">Romance</option>
+                        <option value="ciencia ficción">Ciencia ficción</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="coming of age">Coming of age</option>
+                        <option value="comedia">Comedia</option>
+                        <option value="animación">Animación</option>
+                        <option value="suspenso">Suspenso</option>
+                    </select>
+                </div>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/thefightclub.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Foco</span>
+                        <h3>El Club de la Pelea <span class="year">1999</span></h3>
+                        <p class="excerpt">Una critica intensa al vacío del consumismo moderno y una busqueda desesperada de identidad, que muestra los extremos del querer sentirnos vivos.</p>                  </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/lalaland.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>La La Land <span class="year">2016</span></h3>
+                        <p class="excerpt">Un viaje musical sobre el precio de perseguir los sueños y como el amor puede ser el motor a crecer, aunque eso signifique tomar caminos separados.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/Inception.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>El Origen <span class="year">2010</span></h3>
+                        <p class="excerpt">Sueños dentro de sueños construyen un laberinto mental donde la culpa y la obsesión vuelven imposible distinguir la realidad.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/versailles.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Foco</span>
+                        <h3>Maria Antonieta <span class="year">2006</span></h3>
+                        <p class="excerpt">Una mirada estética y moderna de la vida de una reina atrapada en la soledad, los excesos y la juventud.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/uptown.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Pequeñas Grandes Amigas<span class="year">2003</span></h3>
+                        <p class="excerpt">Dos personas completamente distintas encuentran compañia y aprenden a crecer juntas en un mundo lleno de heridas y soledad.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/The Grand Hotel Budapest.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Estética</span>
+                        <h3>El Grand Hotel Budapest <span class="year">2014</span></h3>
+                        <p class="excerpt">Una reflexión que muestra con la belleza, el arte y los recuerdos lo importante que es crear un refugio frente a la decadencia de un mundo que ya no existe pero que tanto amamos.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/society.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Reseña</span>
+                        <h3>La Sociedad de los Poetas Muertos <span class="year">1989</span></h3>
+                        <p class="excerpt">Un llamado a despertar el pensamiento propio y vivir con autenticidad, desafiando los moldes impuestos para encontrar un propósito verdaderamente nuestro.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/the perks of being a wallflower.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Análisis</span>
+                        <h3>Las Ventajas de Ser Invisible <span class="year">2012</span></h3>
+                        <p class="excerpt">Una mirada honesta sobre los dolores del crecimiento, el valor de encontrar donde pertenecer y como el amor y las amistades pueden ayudarnos a sanar heridas del pasado.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/mebeforeyou.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Yo Antes de Ti<span class="year">2016</span></h3>
+                        <p class="excerpt">Un romance emotivo que explora como dos personas pueden transformar la vida de la otra mientras se enseñan sobre la libertad y el valor del amor incondicional.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/spotlessmind.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Foco</span>
+                        <h3>Eterno Resplandor de una Mente sin Recuerdos<span class="year">2004</span></h3>
+                        <p class="excerpt">Un romance sobre recuerdos fragmentados y emociones que resisten a desaparecer. La pelicula explora el amor, el dolor y todo aquello que nos hace humanos.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/littlemiss.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Análisis</span>
+                        <h3>Pequeña Miss Sunshine<span class="year">2006</span></h3>
+                        <p class="excerpt">Una comedia emotiva sobre una familia imperfecta que redefine el concepto del éxito, recordándonos que las personas con quienes compartis tu vida son más importantes que un premio.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/ps.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Vidas Pasadas<span class="year">2023</span></h3>
+                        <p class="excerpt">Una historia dedicada al destino, el paso del tiempo y las decisiones que tomamos, explorando el hilo de una conexión que nunca se rompe del todo, no importa los años o la distancia.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/wild.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Foco</span>
+                        <h3>Camino Salvaje <span class="year">2007</span></h3>
+                        <p class="excerpt">Un viaje sobre la búsqueda absoluta de la libertad y el desapego material, que nos deja una gran lección sobre la felicidad y el propósito de vivir.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/descarga.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Amélie<span class="year">2001</span></h3>
+                        <p class="excerpt">Entre las calles de París y pequeños actos de bondad, Amélie convierte la imaginación y la soledad en algo profundamente mágico.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/forrest.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Forrest Gump<span class="year">1994</span></h3>
+                        <p class="excerpt">La vida de un hombre sencillo que, sin buscarlo, atraviesa algunos de los momentos más importantes de su país mientras intenta aferrarse al amor de su vida.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/almostfamous.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Casi Famosos<span class="year">2000</span></h3>
+                        <p class="excerpt">Una  carta de amor a la música de los 70s, a la juventud y a la pérdida de inocencia a través de un adolescente de 15 años entrevistando a con una banda de rock.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/comerrezaramar.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Comer Rezar Amar<span class="year">2010</span></h3>
+                        <p class="excerpt">Un viaje de autodescubrimiento donde el amor, la espiritualidad y las conexiones se encuentran en distintas partes del mundo.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/aftersun.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Aftersun<span class="year">2022</span></h3>
+                        <p class="excerpt">Unas vacaciones de la infancia son la base para una joya cinematografica sobre el duelo, la memoria y lo que nunca nos dijieron nuestros padres.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/anna&hugh.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Un Lugar Llamado Notting Hill<span class="year">1999</span></h3>
+                        <p class="excerpt">Entre librerí­as, calles londinenses y encuentros inesperados, una historia sobre cómo el amor puede aparecer incluso en las vidas más distintas.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/ocean.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Reseña</span>
+                        <h3>Intelestelar <span class="year">2014</span></h3>
+                        <p class="excerpt">Una conmovedora aventura cósmica que nos recuerda que el amor y los lazos familiares son las únicas fuerzas capaces de transcender el tiempo, la distancia y las dimensiones.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/Atonement aesthetic.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Expansión, Deseo y Pecado<span class="year">2007</span></h3>
+                        <p class="excerpt">Amor, culpa y recuerdos se entrelazan en una historia de pasión marcada por las consequencias de una sola decisión y el peso de la guerra.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/pearharbor.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Pearl Harbor<span class="year">2001</span></h3>
+                        <p class="excerpt">Un dramático recordatorio que cómo la guerra puede irrumpir en la juventud, transformando el amor y la amistad en una lucha por sobrevivir.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/trumanshow.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Truman Show<span class="year">1998</span></h3>
+                        <p class="excerpt">Una brillante parábola sobre el despertar de la consciencia, que cuestiona la comodidad de una vida artificial frente la valentía de buscar la verdad.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/antesdelamanecer.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Antes del Amanecer<span class="year">1995</span></h3>
+                        <p class="excerpt">Un homenaje a las conexiones espontáneas, que muestran cómo una sola noche de conversación sincera puede marcar el alma para siempre a pesar del adiós.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/matrix.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Matrix<span class="year">1999</span></h3>
+                        <p class="excerpt">Una revolucionaria metáfora sobre lalibertad mental que nos desafía a elegir entre la comodidad de la ilusión o la dura realidad.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/mujercitas.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Mujercitas<span class="year">2019</span></h3>
+                        <p class="excerpt">Un tierno retrato sobre la hermandad y la identidad feminina, que celebra el derecho de cada mujer a trazar su propio camino y a definir el éxito bajo sus propios principios.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/toscana.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Bajo el Sol de la Toscana<span class="year">2003</span></h3>
+                        <p class="excerpt">Un luminoso y cálido viaje de sanación que nos enseña que el fin de una historia no es el final del mundo, sino la oportunidad de reconstruirnos y encontrar la felicidad en los lugares más inesperados.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/goodwillhunting.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Mente Indomable<span class="year">1997</span></h3>
+                        <p class="excerpt">Una conmovedora lección sobre el miedo al rechazo y la vulnerabilidad, que demuestra que el verdadero genio no sirve de nada si no tienes el valor de sanar tus heridas.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/codigodavinci.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Código Da Vinci<span class="year">2017</span></h3>
+                        <p class="excerpt">Un atrapante thriller intelectual que desafía la historia oficial, mostrando que la búsqueda de la verdad oculta puede sacudir los cimientos de la fe y el poder.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/Big Fish.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>El Gran Pez<span class="year">2006</span></h3>
+                        <p class="excerpt">Una hermosa fábula sobre la reconciliación familiar que nos enseña cómo la fantasía y las historias que dejamos atrá
+                            s son la mejor manera de volvernos inmortales.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/lavidaesbella.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>La Vida es Bella<span class="year">1997</span></h3>
+                        <p class="excerpt">Una desgarradora peor hermosa obra maestra que celebra el pder de la imaginaciÃ³n y el amor de un padre, capaz de construir un mundo de juego para proteger a su hijo de la peor de las realidades.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/diariodeunapasion.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Diario de una Pasión<span class="year">2004</span></h3>
+                        <p class="excerpt">Un conmovedor homenaje a la lealtad, que demuestra cómo el amor verdadero y puro es capaz de resistir el paso del tiempo, las diferencias sociales y el olvido.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/cinemaparadiso.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Cinema Paradiso<span class="year">1988</span></h3>
+                        <p class="excerpt">Una declaración de amor al cine que desborda de nostalgia, recordándonos cómo los sueños de la infancia y las salas oscuras moldean nuestras vidas y nos enseñan a madurar.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/ratatouille.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Ratatouille<span class="year">2007</span></h3>
+                        <p class="excerpt">Una brillante metáfora sobre la pasión que rompe prejuicios, recordándonos que el arte y el verdadero talento pueden surgir del rincón más inesperado.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/perfume.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Perfume de Mujer<span class="year">1992</span></h3>
+                        <p class="excerpt">Una lección de dignidad y redención que demuestra cómo, en medio de la oscuridad y la amargura, una conexión humana sincera puede devolvernos las ganas de vivir.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/medianoche.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Medianoche en Paris<span class="year">2011</span></h3>
+                        <p class="excerpt">Una encantadora reflexión sobre la nostalgia que nos advierte la trampa sobre idealizar el pasado, recordándonos que la verdadera magia está en aprender a vivir en el presente.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/odio.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>10 Cosas que Odio de ti<span class="year">1999</span></h3>
+                        <p class="excerpt">Una inteligente relectura de Shakespeare que expone el miedo a salir heridos, demostrando que detrás de cada coraza siempre hay alguien buscando su valor para los otros.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/orgulloyprejuicio.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Orgullo y Prejuicio<span class="year">2005</span></h3>
+                        <p class="excerpt">Una aguda lección sobre el amor que demuestra cómo, para conectar de verdad, debemos vencer el ego, romper las primeras impresiones y mirar más alla de las apariencias.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/frankestein.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Frankestein<span class="year">2025</span></h3>
+                        <p class="excerpt">Una trágica advertencia sobre la ambición y el rechazo que nos confronta a una realidad: el verdadero monstruo no es la criatura que busca amor, sino la sociedad que lo margina.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/cuentaconmigo.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Cuenta Conmigo<span class="year">1986</span></h3>
+                        <p class="excerpt">Una conmovedora aventura sobre el fin de la inocencia, que nos recuerda que los amigos de la infancia marcan nuestras vidas para siempre como ninguno otro.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/romeo+julieta.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Romeo + Julieta<span class="year">1996</span></h3>
+                        <p class="excerpt">Un frenético torbellino pop que demuestra cómo la pureza del primer amor es una fuerza tan hermosa como destructiva en un mundo liderado por el odio y la violencia.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/cisnenegro.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>El Cisne Negro<span class="year">2010</span></h3>
+                        <p class="excerpt">Un asfixiante viaje psicológico que expone los peligros de la obsesión por la perfección, mostrando como la búsqueda implacable del arte puede destruir nuestra propia mente.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/cuestiondetiempo.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Cuestión de Tiempo<span class="year">2013</span></h3>
+                        <p class="excerpt">Una hermosa lección de vida que demuestra que el verdadero superpoder es aprender a saborear cada día ordinario como si fuera el último.</p>
+                    </figcaption>
+                </figure>
+            
+
+                <figure class="mag-item reveal" style="background-image:url('assets/desayunoentiffanyÂ´s.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Desayuno en Tiffany´s<span class="year">1961</span></h3>
+                        <p class="excerpt">Una sofisticada mirada a las fachadas que construimos para protegernos, que nos revela nuestro miedo a la vulnerabilidad y el no saber quienes somos realmente.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/secretlife.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>La Vida Secreta de Walter Mitty<span class="year">2013</span></h3>
+                        <p class="excerpt">Una inspiradora aventura que nos invita a dejar de soñar despiertos y salir al mundo, recordándonos que la verdadera esencia de la vida esta en experimentar la realidad en carne propia.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/todo.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Todo, en Todas Partes, al Mismo Tiempo<span class="year">2022</span></h3>
+                        <p class="excerpt"> Un caótico y brillante torbellino visual que utiliza el multiverso para recordarnos una verdad dolorosamente simple: en un universo infinito y absurdo, lo único que realmente importa es ser amables.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/sueÃ±osdefuga.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Sueños de Fuga<span class="year">1994</span></h3>
+                        <p class="excerpt"> Una obra maestra sobre la resiliencia humana que demuestra que, incluso en las prisiones más oscuras y opresivas, la esperanza y la amistad verdadera son las únicas herramientas capaces de mantener libre el espíritu.</p>
+                    </figcaption>
+                </figure>
+                
+                <figure class="mag-item reveal" style="background-image:url('assets/hamnet.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Hamnet<span class="year">2025</span></h3>
+                        <p class="excerpt">Una visceral y conmovedora exploración del duelo que transforma la pérdida de un hijo en arte eterno, demostrando cómo el dolor más devastador puede convertirse en la fuerza creativa más poderosa de la historia.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="mag-item reveal" style="background-image:url('assets/siempreelmismodia.jpg')">
+                    <figcaption>
+                        <span class="caption-tag">Editorial</span>
+                        <h3>Siempre el Mismo Día<span class="year">2011</span></h3>
+                        <p class="excerpt">Una desgarradora y hermosa mirada al paso del tiempo que demuestra cómo una sola conexión puede moldear toda nuestra existencia, recordándonos el peligro de tardar demasiado en abrazar el amor.</p>
+                    </figcaption>
+                </figure>
+
+                <div class="show-more-wrapper">
+                    <button id="showMoreBtn" class="show-more-btn" type="button" aria-expanded="false">Ver mÃ¡s</button>
+                </div>
+            </section>
+
+            <section id="sobre" class="sobre container">
+                <h2 class="section-title">Editorial</h2>
+                <p class="editorial">Textos breves sobre tendencias, estética y nuevas voces del cine contemporáneo, escritos con mirada crítica y afectiva.</p>
+            </section>
+
+            <section id="contacto" class="contacto container">
+                <h2 class="section-title">Contacto</h2>
+                <p>Envíe sugerencias o propuestas editoriales.</p>
+                <form class="contact-form" onsubmit="handleContact(event)">
+                    <label>Nombre <input type="text" name="name" required></label>
+                    <label>Correo <input type="email" name="email" required></label>
+                    <label>Mensaje <textarea name="message" rows="4" required></textarea></label>
+                    <button class="btn" type="submit">Enviar</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="site-footer container">
+            <p>© 2026 ARCHIVO 49 - Revista digital de cine - Candelaria Soria </p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
+
+

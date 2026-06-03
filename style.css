@@ -1,0 +1,259 @@
+/*
+  style.css - Estética editorial minimalista
+  - Blanco, negro y grises claros
+  - Mucho espacio en blanco, tipografía elegante
+  - Layout tipo collage asimétrico con animaciones suaves
+  Comentarios en español para principiantes
+*/
+
+:root{
+  --bg:#ffffff; /* fondo blanco limpio */
+  --text:#0b0b0b; /* texto principal negro */
+  --muted:#6b6b6b; /* gris claro para acentos */
+  --accent:#222222; /* acento oscuro */
+  --container-width:1200px;
+}
+
+html{scroll-behavior:smooth}
+
+/* Reset ligero */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Contenedor central */
+.container{max-width:var(--container-width);margin:0 auto;padding:0 24px}
+
+/* Cabecera minimalista: mucho blanco, logo grande y links discretos */
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:28px 0;gap:24px;flex-wrap:wrap}
+.header-left{display:flex;align-items:center;gap:18px;flex:1;min-width:240px}
+.site-header .logo{font-family: 'Playfair Display', serif;font-size:28px;letter-spacing:4px;text-decoration:none;color:var(--accent)}
+
+.nav-links{display:flex;gap:26px}
+.nav-link{color:var(--muted);text-decoration:none;font-weight:500;font-size:14px}
+.nav-link:hover{color:var(--text)}
+
+/* PORTADA: grande, tipografía editorial y fondo cinematográfico */
+.cover{position:relative;min-height:100vh;display:flex;align-items:center;padding:0;overflow:hidden}
+.cover-image{position:absolute;inset:0;background-image:url('assets/chaotic.jpg');background-size:cover;background-position:center;filter:contrast(0.95) brightness(0.55);transform:scale(1.03);}
+.cover::before{content:'';position:absolute;inset:0;background:
+    linear-gradient(180deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.72)),
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03), transparent 14%),
+    radial-gradient(circle at 80% 15%, rgba(255,255,255,0.03), transparent 16%);
+    pointer-events:none;}
+.cover::after{content:'49';position:absolute;right:-5%;top:10%;font-family:'Playfair Display',serif;font-size:clamp(220px,30vw,340px);font-weight:700;color:rgba(255,255,255,0.06);letter-spacing:10px;pointer-events:none;transform:translateY(-10%) rotate(-2deg);}
+.cover-content{position:relative;z-index:2;padding:120px 0 60px;max-width:720px;animation:fadeInUp .9s ease-out both .15s;}
+.mag-title{font-family:'Playfair Display',serif;font-size:clamp(72px, 13vw, 140px);line-height:0.9;margin-bottom:14px;color:#f5f5f2;letter-spacing:4px;transform:translateX(-4px);}
+.cover-big-number{display:block;font-family:'Inter',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:6px;margin-bottom:12px;color:#f5f5f2;opacity:.7;transform:translateX(-2px);}
+.mag-lead{font-size:20px;color:#e5e5e1;max-width:640px;line-height:1.7;letter-spacing:.02em;transform:translateX(6px);}
+.cover-content .mag-lead{margin-top:12px}
+.cover::before, .cover::after{mix-blend-mode:screen}
+
+/* SECCIÓN REVISTA: grid editorial uniforme */
+.magazine{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;padding:64px 0;justify-items:center;}
+.mag-item{position:relative;overflow:hidden;border-radius:24px;box-shadow:0 28px 80px rgba(0,0,0,0.1);transition:transform .45s ease,box-shadow .45s ease,opacity .3s ease,filter .3s ease;min-height:420px;width:100%;max-width:420px;background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:flex-end;}
+.mag-item::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.45));pointer-events:none;opacity:0;transition:opacity .35s ease;}
+.mag-item figcaption{position:relative;z-index:2;padding:24px;display:flex;flex-direction:column;justify-content:flex-end;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-radius:18px;box-shadow:0 14px 38px rgba(0,0,0,0.08);}
+.mag-item h3{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:8px;color:#111;line-height:1.05}
+.mag-item .year{font-weight:700;color:var(--muted);font-size:12px;margin-left:8px}
+.mag-item .excerpt{color:#444;font-size:15px;max-width:40ch;line-height:1.75}
+.caption-tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#777;margin-bottom:12px}
+
+.mag-item.filtered-out{opacity:0;transform:translateY(18px) scale(0.98);filter:blur(1.2px);pointer-events:none}
+.mag-item:hover{transform:translateY(-10px);box-shadow:0 45px 140px rgba(0,0,0,0.18)}
+.mag-item:hover::before{opacity:.22}
+
+/* Controles de filtro y orden: diseño editorial refinado
+   - Marco fino gris oscuro, fondo blanco limpio
+   - Bordes rectos, ícono de lupa integrado
+   - Búsqueda + orden alineados horizontalmente */
+.controls-filter{
+  grid-column:1/-1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  width:100%;
+  margin:16px 0;
+  padding:0;
+  border-radius:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+
+/* Contenedor de búsqueda con ícono integrado */
+.cf-search-wrapper{
+  display:flex;
+  align-items:center;
+  flex:1;
+  max-width:600px;
+  background:#ffffff;
+  border:1px solid #3a3a3a;
+  border-radius:2px;
+  padding:0;
+  transition:border-color .18s ease;
+}
+.cf-search-wrapper:focus-within{
+  border-color:#222222;
+}
+
+.cf-search-icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  color:#333333;
+  opacity:0.6;
+  flex-shrink:0;
+}
+.cf-search-icon svg{
+  width:14px;
+  height:14px;
+}
+
+.cf-mini-search{
+  flex:1;
+  padding:10px 0 10px 0;
+  border:none;
+  background:transparent;
+  font-size:14px;
+  color:var(--text);
+  outline:none;
+  font-weight:400;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+.cf-mini-search::placeholder{
+  color:#999999;
+  opacity:1;
+  font-weight:400;
+}
+.cf-mini-search:focus{
+  outline:none;
+}
+
+/* Dropdown de orden */
+.cf-select{
+  appearance:none;
+  -webkit-appearance:none;
+  padding:10px 12px;
+  border-radius:2px;
+  border:1px solid #3a3a3a;
+  background:#ffffff;
+  font-weight:500;
+  color:var(--text);
+  font-size:13px;
+  transition:border-color .15s ease;
+  cursor:pointer;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  padding-right:28px;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="%23333" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>');
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+  padding-right:32px;
+}
+.cf-select:focus{
+  outline:none;
+  border-color:#222222;
+}
+.cf-select:hover{
+  border-color:#222222;
+}
+
+.show-more-wrapper{
+  grid-column:1/-1;
+  display:flex;
+  justify-content:center;
+  width:100%;
+  margin:0 auto;
+}
+
+.show-more-btn{
+  all:unset;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:720px;
+  padding:13px 18px;
+  border:1px solid rgba(34,34,34,.9);
+  border-radius:999px;
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  background:rgba(255,255,255,.94);
+  transition:background .22s ease,transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+  cursor:pointer;
+}
+
+.show-more-btn:hover{
+  background:rgba(255,255,255,1);
+  box-shadow:0 12px 26px rgba(0,0,0,.08);
+  transform:translateY(-1px);
+}
+
+.show-more-btn:focus-visible{
+  outline:2px solid rgba(34,34,34,.16);
+  outline-offset:4px;
+}
+
+/* Animación suave de películas que se revelan después de hacer click */
+.mag-item.hidden-movie{display:none !important;}
+
+/* Animación de transición para los ítems que aparecen tras el click */
+.mag-item.reveal.show-more-reveal{opacity:0;transform:translateY(20px);}
+
+/* Animación suave al reordenar */
+.reorder-anim{transition:transform .36s cubic-bezier(.2,.9,.2,1),opacity .36s ease}
+
+@media (max-width:700px){
+  .controls-filter{flex-direction:column;align-items:stretch;gap:8px;margin:12px 0}
+  .cf-search-wrapper{max-width:100%}
+  .cf-select{width:100%}
+}
+
+/* Efectos y animaciones suaves */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.9,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Editorial y contacto: tipografía clara, espacio y lectura cómoda */
+.sobre{padding:48px 0}
+.section-title{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:12px}
+.editorial{color:var(--muted);max-width:820px;line-height:1.6}
+.contacto{padding:40px 0}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:720px}
+.contact-form label{display:block;color:var(--muted);font-size:14px}
+.contact-form input,.contact-form textarea{width:100%;padding:10px;border-radius:6px;border:1px solid #e6e6e6;background:transparent}
+.contact-form button{grid-column:1/-1;justify-self:start;padding:10px 16px;border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:6px}
+
+/* Footer limpio */
+.site-footer{padding:28px 0;border-top:1px solid #f0f0f0;color:var(--muted);font-size:14px}
+
+/* Responsive: simplificar columnas en pantallas pequeñas */
+@media (max-width:1000px){
+  .magazine{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+}
+@media (max-width:700px){
+  .site-header{padding:18px 0}
+  .mag-title{font-size:48px}
+  .magazine{grid-template-columns:1fr}
+  .contact-form{grid-template-columns:1fr}
+}
+
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Fin de style.css */
