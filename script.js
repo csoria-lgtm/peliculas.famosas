@@ -51,43 +51,61 @@ document.addEventListener('DOMContentLoaded', function(){
       return;
     }
 
-    // Aquí se podría enviar mediante fetch a una API.
+    
     alert('Gracias, ' + name + '. Tu mensaje ha sido recibido.');
     form.reset();
   };
 
-  /* ======================================================
-     FILTRADO Y ORDENAMIENTO EDITORIAL (sin cambiar textos)
-     - Mantiene la estructura visual y las sinopsis intactas.
-     - No recarga la página: todo se hace en DOM con JS.
-     - Comentarios en español para principiantes.
-     ====================================================== */
+  const metadata = [
+    { key: 'camino salvaje', title: 'Camino Salvaje', year: 2007, genres: ['drama'], score: 9, popularity: 78 },
+    { key: 'intelestelar', title: 'Intelestelar', year: 2014, genres: ['ciencia ficción', 'drama'], score: 10, popularity: 94 },
+    { key: 'amelie', title: 'Amelie', year: 2001, genres: ['comedia', 'romance'], score: 9, popularity: 81 },
+    { key: 'notting hill', title: 'Un Lugar Llamado Notting Hill', year: 1999, genres: ['comedia', 'romance'], score: 7, popularity: 72 },
+    { key: 'aftersun', title: 'Aftersun', year: 2022, genres: ['drama'], score: 8, popularity: 63 },
+    { key: 'el club de la pelea', title: 'El Club de la Pelea', year: 1999, genres: ['drama', 'thriller'], score: 9, popularity: 88 },
+    { key: 'lalaland', title: 'La La Land', year: 2016, genres: ['romance', 'comedia'], score: 8, popularity: 86 },
+    { key: 'el origen', title: 'El Origen', year: 2010, genres: ['ciencia ficción', 'thriller'], score: 9, popularity: 90 },
+    { key: 'maria antonieta', title: 'Maria Antonieta', year: 2006, genres: ['drama'], score: 7, popularity: 58 },
+    { key: 'pequeñas grandes amigas', title: 'Pequeñas Grandes Amigas', year: 2003, genres: ['coming of age', 'comedia'], score: 7, popularity: 46 },
+    { key: 'el grand hotel budapest', title: 'El Grand Hotel Budapest', year: 2014, genres: ['comedia', 'drama'], score: 9, popularity: 80 },
+    { key: 'la sociedad de los poetas muertos', title: 'La Sociedad de los Poetas Muertos', year: 1989, genres: ['drama'], score: 10, popularity: 75 },
+    { key: 'las ventajas de ser invisible', title: 'Las Ventajas de Ser Invisible', year: 2012, genres: ['coming of age', 'drama'], score: 8, popularity: 64 },
+    { key: 'yo antes de ti', title: 'Yo Antes de Ti', year: 2016, genres: ['romance', 'drama'], score: 6, popularity: 55 },
+    { key: 'eterno resplandor', title: 'Eterno Resplandor de una Mente sin Recuerdos', year: 2004, genres: ['romance', 'drama'], score: 10, popularity: 89 },
+    { key: 'pequeña miss sunshine', title: 'Pequeña Miss Sunshine', year: 2006, genres: ['comedia', 'drama'], score: 8, popularity: 70 },
+    { key: 'vidas pasadas', title: 'Vidas Pasadas', year: 2023, genres: ['drama', 'romance'], score: 9, popularity: 50 },
+    { key: 'forrest gump', title: 'Forrest Gump', year: 1994, genres: ['comedia', 'drama'], score: 10, popularity: 95 },
+    { key: 'casi famosos', title: 'Casi Famosos', year: 2000, genres: ['coming of age', 'comedia'], score: 8, popularity: 60 },
+    { key: 'comer rezar amar', title: 'Comer Rezar Amar', year: 2010, genres: ['romance', 'drama'], score: 6, popularity: 52 },
+    { key: 'expacion', title: 'Expacion, Deseo y Pecado', year: 2007, genres: ['drama'], score: 6, popularity: 44 }
+  ];
 
-  // Metadata removed: restoring original behavior without genre rendering.
-  // Previous genre-related logic caused visible metadata and layout issues.
-  // Keeping DOM-driven titles/years and basic ordering/search functionality only.
-  const metadata = [];
-
-  // Elementos del DOM
+ 
   const peliculasSection = document.getElementById('peliculas');
   const controls = document.querySelector('.controls-filter');
   const orderSelect = document.getElementById('orderSelect');
+  const genreSelect = document.getElementById('genreSelect');
 
   if(controls && peliculasSection){
-    // Tomar todas las tarjetas (figures) y crear una estructura en memoria
+    
     const items = Array.from(peliculasSection.querySelectorAll('.mag-item'))
       .map(el => {
-        // Obtener el título tal como aparece (sin el <span class="year">)
+        
         const h3 = el.querySelector('h3');
         let rawTitle = '';
         if(h3){
-          // El primer nodo de texto del h3 contiene el título sin el span
+          
           rawTitle = (h3.childNodes[0] && h3.childNodes[0].textContent) ? h3.childNodes[0].textContent.trim() : h3.textContent.trim();
         }
         const year = parseInt(el.querySelector('.year')?.textContent || '') || null;
-        // Buscar metadato por coincidencia de clave o título (fuzzy)
-        // Restore simple item model derived from DOM only (no genres/metadata rendered)
-        return { el, title: rawTitle, year: year, genres: [], score: 0, popularity: 0 };
+        
+        const key = rawTitle.toLowerCase();
+        const meta = metadata.find(m => key.includes(m.key) || m.title.toLowerCase().includes(key)) || null;
+        
+        const dataGenero = el.dataset.genero ? el.dataset.genero.split(',').map(g => g.trim().toLowerCase()) : [];
+        const genres = dataGenero.length ? dataGenero : ((meta && meta.genres) || []).map(g => g.toLowerCase());
+
+        return { el, title: rawTitle, year: (meta && meta.year) || year, genres, score: (meta && meta.score) || 0, popularity: (meta && meta.popularity) || 0 };
       });
 
     const showMoreBtn = document.getElementById('showMoreBtn');
@@ -96,8 +114,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const hiddenItems = items.slice(initialVisibleCount);
     let collectionExpanded = false;
 
-    // Oculta las películas extra y mantiene solo las primeras 6 visibles
-    // Esta parte añade la clase que las esconde con CSS.
+    
     function hideExtraItems(){
       console.log('Ocultando películas extra:', hiddenItems.length);
       hiddenItems.forEach(item => {
@@ -108,8 +125,7 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     }
 
-    // Muestra suavemente las películas ocultas
-    // Aquí quitamos la clase de oculto y forzamos una transición suave.
+    
     function showExtraItems(){
       console.log('Mostrando películas ocultas:', hiddenItems.length);
       hiddenItems.forEach(item => {
@@ -149,25 +165,27 @@ document.addEventListener('DOMContentLoaded', function(){
     hideExtraItems();
     updateShowMoreButton();
 
-    // Función para aplicar orden y búsqueda, reordenando los nodos en DOM
+    
     function applyFilterAndOrder(){
       const order = orderSelect.value;
 
-        // Obtener la consulta de búsqueda (pequeña barra)
+        
         const query = (miniSearch && miniSearch.value) ? miniSearch.value.trim().toLowerCase() : '';
 
-      // Filtrar en memoria por texto de búsqueda únicamente, sin modificar las sinopsis.
+      const selectedGenre = genreSelect ? genreSelect.value : 'all';
+     
       const visible = items.filter(item => {
         if(hiddenItems.includes(item) && !item.el.classList.contains('shown')){
           return false;
         }
+        const matchesGenre = selectedGenre === 'all' || item.genres.some(g => g.toLowerCase() === selectedGenre);
         const matchesQuery = !query || (item.title || '').toLowerCase().includes(query);
-        return matchesQuery;
+        return matchesGenre && matchesQuery;
       });
 
       const orderedItems = [...items];
 
-      // Ordenar según opción
+      
       switch(order){
         case 'popular':
           orderedItems.sort((a,b) => b.popularity - a.popularity || b.score - a.score || (b.year||0) - (a.year||0));
@@ -191,19 +209,19 @@ document.addEventListener('DOMContentLoaded', function(){
           break;
       }
 
-      // Reinsertar todos los elementos en el orden calculado usando appendChild
+      
       orderedItems.forEach((item) => {
         item.el.classList.add('reorder-anim');
         peliculasSection.appendChild(item.el);
         requestAnimationFrame(() => item.el.classList.remove('reorder-anim'));
       });
 
-      // Mantener el botón siempre al final de la colección
+      
       if(showMoreWrapper){
         peliculasSection.appendChild(showMoreWrapper);
       }
 
-      // Ajustar visibilidad y estilos de cada tarjeta según la búsqueda, el orden y el estado expandido
+     
       orderedItems.forEach(item => {
         const shouldBeVisible = visible.includes(item);
         if(shouldBeVisible){
@@ -217,26 +235,29 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     }
 
-    // Obtener el campo de búsqueda pequeño dentro de la barra compacta
+    
     const miniSearch = document.getElementById('miniSearch');
 
-    // Pequeña función debounce para evitar recalcular en cada pulsación
+    
     function debounce(fn, wait){
       let t;
       return function(...args){ clearTimeout(t); t = setTimeout(()=>fn.apply(this,args), wait); };
     }
 
-    // Event listener para selects, búsqueda y filtro de género
+    
     orderSelect.addEventListener('change', applyFilterAndOrder);
+    if(genreSelect){
+      genreSelect.addEventListener('change', applyFilterAndOrder);
+    }
     if(miniSearch){
       miniSearch.addEventListener('input', debounce(applyFilterAndOrder, 180));
     }
 
-    // Estado inicial: aplicar orden por defecto
+    
     orderSelect.value = 'recommended';
     applyFilterAndOrder();
   }
 
 });
 
-/* Fin de script.js */
+

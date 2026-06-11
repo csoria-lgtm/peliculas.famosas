@@ -7,7 +7,7 @@
         <meta name="keywords" content="cine, revista, crítica, estética, narrativa, películas, análisis" />
         <title>ARCHIVO 49 - Revista de cine</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../style.css" />
     </head>
     <body>
         <header class="site-header container">
@@ -15,22 +15,23 @@
                 <a class="logo" href="#">ARCHIVO 49</a>
             </div>
             <nav class="nav-links">
-                <a class="nav-link" href="#inicio">Inicio</a>
-                <a class="nav-link" href="sections/collection.html">Colección</a>
-                <a class="nav-link" href="sections/edition.html">Editorial</a>
-                <a class="nav-link" href="sections/contact.html">Contacto</a>
+                <a class="nav-link" href="../index.html">Inicio</a>
+                <a class="nav-link" href="collection.html">Colección</a>
+                <a class="nav-link" href="edition.html">Editorial</a>
+                <a class="nav-link" href="contact.html">Contacto</a>
             </nav>
         </header>
 
         <main>
-            <section id="inicio" class="cover">
-                <div class="cover-image" aria-hidden="true"></div>
-                <div class="cover-content container">
-                    <h1 class="mag-title">ARCHIVO 49</h1>
-                    <span class="cover-big-number">49</span>
-                    <p class="mag-lead">Una mirada al cine contemporáneo, su estética única y las narrativas que nunca se olvidan.</p>
-                    <p class="mag-lead">Hecho por Candelaria Soria, Pilar Etchepare y Clara De Alzaa.</p>
-                </div>
+            <section id="contacto" class="contacto container">
+                <h2 class="section-title">Contacto</h2>
+                <p>Envíe sugerencias o propuestas editoriales.</p>
+                <form class="contact-form" onsubmit="handleContact(event)">
+                    <label>Nombre <input type="text" name="name" required></label>
+                    <label>Correo <input type="email" name="email" required></label>
+                    <label>Mensaje <textarea name="message" rows="4" required></textarea></label>
+                    <button class="btn" type="submit">Enviar</button>
+                </form>
             </section>
         </main>
 
@@ -38,7 +39,7 @@
             <p>© 2026 ARCHIVO 49 - Revista digital de cine - Candelaria Soria, Pilar Etchepare y Clara De Alzaa</p>
         </footer>
 
-        <script src="script.js"></script>
+        <script src="../script.js"></script>
     </body>
 </html>
 
